@@ -29,6 +29,8 @@ def extract_content(markdown_text):
         for j in range(i + 1, len(parsed_items)):
             next_level, next_text = parsed_items[j]
             if next_level == current_level + 1:
+                next_text=next_text.replace('$','<anki-mathjax>',1)
+                next_text=next_text.replace('$','</anki-mathjax>',-1)
                 next_items.append("<li>" + next_text + "</li>")
             elif next_level <= current_level:
                 break

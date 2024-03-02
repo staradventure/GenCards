@@ -2,7 +2,7 @@ import random
 
 import genanki
 
-def create_deck(deck_name, card_data):
+def create_deck(deck_path,deck_name, card_data):
     # 创建一个新的牌组
     my_deck = genanki.Deck(
       deck_id = random.randint(0, 99999),
@@ -32,5 +32,5 @@ def create_deck(deck_name, card_data):
         my_deck.add_note(my_note)
 
     # 生成牌组文件
-    genanki.Package(my_deck).write_to_file(f'./{deck_name}.apkg')
+    genanki.Package(my_deck).write_to_file(f'{deck_path}\\{deck_name}.apkg')
 
